@@ -1,6 +1,6 @@
 {
   "name": "ecma-utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A collection of ECMAScript utilities for use across my projects.",
   "author": "Michael Rosata",
   "contributors": [
@@ -55,6 +55,10 @@
   "babel": {
     "presets": ["react", "es2015", "stage-1"],
     "plugins": [ "transform-object-rest-spread" ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrosata/ecma-utils.git"
   },
   "private": false,
   "license": "MIT"
