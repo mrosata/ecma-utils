@@ -7,7 +7,7 @@
  * @param fn
  * @returns {Function} fn
  */
-module.exports = function curry(fn) {
+export default function curry(fn) {
   return (...args) => {
     if (args.length < fn.length) {
       return curry(fn.bind(fn, ...args));
