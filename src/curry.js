@@ -15,3 +15,6 @@ export default function curry(fn) {
     return fn.call(fn, ...args);
   }
 }
+/**
+ * Created by michael on 11/8/16.
+ */

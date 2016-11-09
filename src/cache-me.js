@@ -1,8 +1,8 @@
+import {JSON} from 'mocha/mocha';
 /**
  *  @package: "ecma-utils/cache-me"
  *  @author: Michael Rosata
  *  @description: JavaScript method cache decorator.
- *
  *
  * Wrap specific methods of an object so that they will cache
  * their own results.
@@ -13,20 +13,16 @@
  *
  *         cacheMe(myObj, 'add', 'mult'); // cache methods on myObj
  *     ```
- *
- *
- * @param subject object - Object on which the `methods` exist.
- * @param methods N strings - one for each method to wrap
- * @returns {*}
  */
-
-
 const validKey = (keyStr) => encodeURIComponent(keyStr);
-const noop = () => null
 
 
 class CachedObject {
-
+  /**
+   * @param subject object - Object on which the `methods` exist.
+   * @param methods N strings - one for each method to wrap
+   * @returns {*}
+   */
   constructor( subject, methods ) {
     this.subject = subject
     this._cache = {}
@@ -41,9 +37,8 @@ class CachedObject {
   }
 
   accessMethodCache(methodName, method, ...args) {
-    const {_cache} = this
-
-    let key = this.keyForArgs( ...args )
+    const {_cache} = this,
+          key = this.keyForArgs( ...args )
 
     if (!_cache[methodName].hasOwnProperty(key)) {
       _cache[methodName][key] = method(...args);
@@ -55,17 +50,17 @@ class CachedObject {
 
   /**
    * Decorate the methods
-   * @param array methods
+   * @param methods {[]}
    *     An array of method names on this.subject to decorate
    */
   mapMethodsToCache(methods) {
-    const {accessMethodCache, _cache, subject} = this
+    const {subject} = this,
+          boundAccessCache = this.accessMethodCache.bind(this)
 
-    let boundAccessCache = accessMethodCache.bind(this)
     methods.map(method => {
       // Make sure we only create the cache 1 time.
-      if (!_cache[method]) {
-        _cache[method] = {}
+      if (!this._cache[method]) {
+        this._cache[method] = {}
       }
 
       // If the method exists, overwrite it as a cached function.

@@ -14,7 +14,6 @@
  *        if ( is.defined(val) )    { "Value is not undefined"     }
  *        if ( is.undefined(val) )  { "Value is defined"           }
  *        if ( is.string(val) )     { "Value is a String"          }
- *        if ( is.stringLike(val) ) { "Value is str or str object" }
  *        if ( is.number(val) )     { "Value is a number"          }
  *        if ( is.a(val, B) )       { "Value is of type B"         }
  *        if ( is.thenable(val) )   { "Value is has then function" }
@@ -31,7 +30,7 @@
 /**
  * The current executions global environment.
  *
- * @type {Window|Global|Self}
+ * @type {Window}
  */
 const environment = (
   typeof window !== "undefined" ? window : (
@@ -40,7 +39,7 @@ const environment = (
     )))
 
 
-export default class is {
+class is {
 
   static none(testValue) {
     return !testValue && typeof testValue === "object"
@@ -74,10 +73,6 @@ export default class is {
     return typeof testValue === "string"
   }
 
-  static stringLike(testValue) {
-    return is.string || (is.objectType( testValue ) && typeof testValue.valueOf() === "string")
-  }
-
   static number(testValue) {
     return typeof testValue === "number" && is.not( Number.isNaN(testValue) )
   }
@@ -97,7 +92,8 @@ export default class is {
    */
   static a(testValue, typeConstructor) {
     return (is.objectType(testValue) || is.callable(testValue)) && (
-        is.string(typeConstructor) ? testValue.constructor === environment[typeConstructor] : (
+        is.string(typeConstructor) ?
+        testValue.constructor === environment[typeConstructor] : (
           testValue.constructor === typeConstructor
         ))
   }
@@ -174,7 +170,8 @@ export default class is {
    */
   static objectWith(...props) {
     return (testValue) => {
-      return is.object( testValue ) && props.every( prop => !is.undefined( testValue[prop] ))
+      return is.object( testValue ) && props.every(
+        prop => !is.undefined( testValue[prop] ))
     }
   }
 
@@ -200,3 +197,6 @@ export default class is {
   }
 
 }
+
+
+export default is
