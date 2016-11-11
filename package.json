@@ -16,6 +16,16 @@
     "helper",
     "functions"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrosata/ecma-utils.git"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "private": false,
+  "license": "MIT",
   "main": "dist/ecma-utils.js",
   "module": "dist/ecma-utils.mjs",
   "jsnext:main": "dist/ecma-utils.mjs",
@@ -36,19 +46,10 @@
     "babel-plugin-external-helpers": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.18.0",
-    "chai": "3.5.0",
     "eslint": "3.6.1",
     "eslint-plugin-import": "1.16.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.3.0",
-    "gulp": "3.9.1",
-    "gulp-babel": "6.1.2",
-    "gulp-eslint": "3.0.1",
-    "gulp-mocha": "3.0.1",
-    "gulp-rimraf": "0.2.0",
     "istanbul": "^0.4.5",
     "mocha": "3.1.0",
     "ramda": "^0.22.1",
@@ -60,27 +61,14 @@
   "engine": "node >= 0.10.x",
   "babel": {
     "presets": [
-      "react",
-      "es2015",
-      "stage-1"
-    ],
-    "plugins": [
-      "transform-object-rest-spread"
+      ["es2015"]
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mrosata/ecma-utils.git"
-  },
-  "files": [
-    "lib",
-    "dist"
-  ],
-  "private": false,
-  "license": "MIT",
   "dependencies": {
+    "babel-plugin-external-helpers": "^6.18.0",
     "babelrc-rollup": "^3.0.0",
-    "gulp": "^3.9.1",
-    "rollup-plugin-istanbul": "^1.1.0"
+    "chai": "^3.5.0",
+    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-watch": "^2.5.0"
   }
 }
