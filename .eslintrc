@@ -5,6 +5,10 @@
     "node": true,
     "mocha": true
   },
+  "globals": {
+    "describe": true,
+    "it": true
+  },
   "rules": {
     "comma-dangle": 0,
     "consistent-return": 0,
