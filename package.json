@@ -1,7 +1,7 @@
 {
   "name": "ecma-utils",
-  "version": "0.1.3",
-  "description": "A collection of ECMAScript utilities for use across my projects.",
+  "version": "0.1.4",
+  "description": "A collection of ECMAScript utilities for use in any JavaScript projects.",
   "author": "Michael Rosata",
   "contributors": [
     {
@@ -35,40 +35,36 @@
     "clean": "rimraf dist",
     "watch": "rollup -c -w",
     "pretest": "npm run build",
-    "test": "mocha",
-    "test:watch": "mocha --watch",
+    "test": "_mocha",
+    "test:watch": "_mocha --watch",
     "prepublish": "npm test"
   },
   "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.16.0",
+    "babel-cli": "^6.18.0",
     "babel-eslint": "7.0.0",
     "babel-plugin-external-helpers": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.18.0",
+    "babelrc-rollup": "^3.0.0",
+    "chai": "^3.5.0",
     "eslint": "3.6.1",
     "eslint-plugin-import": "1.16.0",
     "istanbul": "^0.4.5",
     "mocha": "3.1.0",
-    "ramda": "^0.22.1",
+    "mocha-istanbul": "^0.3.0",
     "rimraf": "2.5.4",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
-    "run-sequence": "1.2.2"
+    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-watch": "^2.5.0"
   },
+  "dependencies": {},
   "engine": "node >= 0.10.x",
   "babel": {
     "presets": [
-      ["es2015"]
+      [
+        "es2015"
+      ]
     ]
-  },
-  "dependencies": {
-    "babel-plugin-external-helpers": "^6.18.0",
-    "babelrc-rollup": "^3.0.0",
-    "chai": "^3.5.0",
-    "rollup-plugin-istanbul": "^1.1.0",
-    "rollup-watch": "^2.5.0"
   }
 }

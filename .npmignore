@@ -29,5 +29,4 @@ node_modules
 # npm log file
 npm-debug.log
 
-dist/
 test-dist
