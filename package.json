@@ -20,11 +20,13 @@
   "module": "dist/ecma-utils.mjs",
   "jsnext:main": "dist/ecma-utils.mjs",
   "scripts": {
-    "prebuild": "eslint lib test",
+    "prebuild": "npm run clean && eslint lib test",
     "build": "rollup -c",
+    "clean": "rimraf dist",
     "watch": "rollup -c -w",
     "pretest": "npm run build",
     "test": "mocha",
+    "test:watch": "mocha --watch",
     "prepublish": "npm test"
   },
   "devDependencies": {
