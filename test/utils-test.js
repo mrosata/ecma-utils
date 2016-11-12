@@ -1,5 +1,5 @@
 /*globals before, after, describe, it*/
-import {compose, isArray} from '../lib/utils.js'
+import {compose, isArray, } from '../lib/utils.js'
 import {expect} from 'chai'
 
 let f, g
@@ -26,5 +26,3 @@ describe('#isArray utility function', () => {
     expect(isArray({})).to.be.false
   })
 })
-
-
