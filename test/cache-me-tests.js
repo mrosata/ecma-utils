@@ -1,5 +1,4 @@
 /* global it, describe, before, after */
-
 import {expect} from 'chai'
 import {cacheMe} from '../lib/index.js'
 
