@@ -11,10 +11,12 @@
   ],
   "keywords": [
     "utils",
-    "type",
+    "lambda functions",
     "validation",
     "helper",
-    "functions"
+    "functions",
+    "functional programming library",
+    "minimal fp"
   ],
   "repository": {
     "type": "git",

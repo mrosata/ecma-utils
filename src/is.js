@@ -1,10 +1,28 @@
 /**
- *  @package: "ecma-utils/is"
- *  @author: Michael Rosata
- *  @description: JavaScript type validation class.
+ * @class ecma-utils/is
+ * @memberOf ecmaUtils
+ * @method none
+ * @method none
+ * @method object
+ * @method objectType
+ * @method array
+ * @method callable
+ * @method undefined
+ * @method defined
+ * @method string
+ * @method number
+ * @method NaN
+ * @method a
+ * @method thenable
+ * @method not
+ * @method and
+ * @method affirm
+ * @method objectWith
+ * @method truthy
+ * @method falsey
  *
- *
- * Utilities for testing values for type
+ * @desc JavaScript type validations, a utilities for testing values
+ *       for type. Includes and, or, truthy and falsey checks as well.
  *     ```javascript
  *        if ( is.none(val) )       { "Value is null"              }
  *        if ( is.object(val) )     { "Value is a real object"     }
@@ -42,7 +60,7 @@ const environment = (
 class is {
 
   static none(testValue) {
-    return !testValue && typeof testValue === "object"
+    return testValue === null
   }
 
   static object(testValue) {

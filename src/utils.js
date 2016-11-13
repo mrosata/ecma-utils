@@ -1,26 +1,9 @@
 import curry from './curry.js'
 import curry2 from './curry2.js'
-import is from './is.js'
 
 const logger = typeof console === "undefined" ? {} : console
 
-/**  isArray :: Mixed -> Boolean */
-const isArray = (mixed) => is.array(mixed)
-/** isCallable :: Mixed -> Boolean */
-const isCallable = (mixed) => is.callable(mixed)
-/**  isArray :: Mixed -> Boolean */
-const isObject = (mixed) => is.object(mixed)
-/**  isDefined :: Mixed -> Boolean */
-const isDefined = (mixed) => is.defined(mixed)
-/**  isBool :: Mixed -> Boolean */
-const isBool = (mixed) => is.bool(mixed)
-/**  isNone :: Mixed -> Boolean */
-const isNone = (mixed) => mixed === null
-/**  not :: Mixed -> Boolean # tests if falsey */
-const not = (val) => !val
-/**  isNeg :: Mixed -> Boolean  # falsey and not zero */
-const isNeg = (val) => !val && val !== 0
-/**  noop :: Mixed -> Boolean */
+/**  noop :: Mixed -> _ */
 const noop = (n) => void(n)
 
 /**  bool :: Mixed -> Boolean */
@@ -181,14 +164,6 @@ const runWith = curry(function runWith(funcs, subjects) {
 
 
 export default {
-  isArray,
-  isCallable,
-  isObject,
-  isDefined,
-  isBool,
-  isNone,
-  not,
-  isNeg,
   noop,
   bool,
   int,
