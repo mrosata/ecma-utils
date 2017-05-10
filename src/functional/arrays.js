@@ -1,60 +1,57 @@
 import curry from '../utils/curry.js'
 import curry2 from '../utils/curry2.js'
-import isArray from '../validation/is-func.js'
+import is from '../validation/is-func.js'
 
 
-/** list :: α -> [α] */
-const list = (a) => isArray(a) ? a.slice(0) : [].concat(a)
+// list :: α -> [α]
+const list = (a) => is.isArray(a) ? [...a] : [a]
 
-/** includes :: [α] -> Boolean */
+// includes :: [α] -> Boolean
 const includes = curry((array, val) => array.includes(val))
 
-/**  lastItem :: [α] -> α  */
-const lastItem = (array) => list(array)[array.length - 1]
+// last :: [α] -> α
+const last = (array) => list(array)[array.length - 1]
 
-/**  lastIndex :: [α] -> Int */
+// lastIndex :: [α] -> Int
 const lastIndex = (array) => list(array).length - 1
 
-/**  head :: [α] -> α  */
+// head :: [α] -> α
 const head = (array) => list(array)[0]
 
-/** pluck :: ([α] -> Int) -> α */
-const pluck = curry((array, idx) => list(array)[idx])
+// nth :: (Int -> [α]) -> α
+const nth = curry((idx, array) => list(array)[idx])
 
-/** pluckN :: (Int -> [α]) -> α */
-const pluckN = curry((idx, array) => list(array)[idx])
+// remove :: Int -> Int -> ([α] -> [α])
+const remove = curry((start, amt, array) => [
+    ...list(array).slice(0, start),
+    ...list(array).slice(start + amt)
+  ]
+)
 
-/** immutableSplice :: Int -> ([α] -> [α]) */
-const immutableSplice = curry((idx, array) => {
-  return list(array)
-    .slice(0, idx)
-    .concat(list(array).slice(idx+1))
-})
-
-/**  count :: [α] -> Int  */
+//  count :: [α] -> Int
 const count = (array) => isArray(array) && array.length ?
   array.length : 0
 
-/**  push :: [α] -> α -> [α]  */
+//  push :: [α] -> α -> [α]
 const push = curry((array, item) => array.push(item) && item)
 
-/**  map :: [α] -> Fn -> [β]  */
+//  map :: [α] -> Fn -> [β]
 const map = curry((fn, array) => list(array).map(fn))
 
-/**  filter :: [α] -> Fn -> [α]  */
+//  filter :: [α] -> Fn -> [α]
 const filter = curry((fn, array) => list(array).filter(fn))
 
-/** reduce :: Fn -> [α] -> β  */
+// reduce :: Fn -> [α] -> β
 const reduce = curry2((fn, array, def) => array.length ?
   list(array).reduce(fn, def || noop()) : noop())
 
-/** padList :: [], Int, β -> [β]  */
+// padList :: [], Int, β -> [β]
 const padList = curry((array, len, val) => list(array).concat(
   new Array(Math.max(0, len - array.length)).fill(val)))
 
 
-/**  zip :: ([α] -> [β]) -> [[α, β]]  */
-export const zip = (...array) =>
+//  zip :: ([α] -> [β]) -> [[α, β]]
+const zip = (...array) =>
   new Array(Math.max.apply(null, array.map(a=>a.length)))
     .fill(null)
     .map((_, index) => {
@@ -67,8 +64,8 @@ export const zip = (...array) =>
     })
 
 
-/**  unzip :: ([[α]] -> [β]) -> [[α]] -> [β] */
-export const unzipWith = (fn, array) => array
+//  unzip :: ([[α]] -> [β]) -> [[α]] -> [β]
+const unzipWith = (fn, array) => array
   .reduce((accum, items) => {
     accum.push(fn.apply(fn, items));
     return accum;
@@ -76,7 +73,19 @@ export const unzipWith = (fn, array) => array
 
 
 export default {
-  list, includes, lastItem, lastIndex, head, pluck, pluckN,
-  immutableSplice, count, push, map, filter, reduce, padList,
-  zip, unzip
+  count,
+  filter,
+  head,
+  includes,
+  last,
+  lastIndex,
+  list,
+  map,
+  nth,
+  padList,
+  push,
+  reduce,
+  remove,
+  unzipWith,
+  zip,
 }

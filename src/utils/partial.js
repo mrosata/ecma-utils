@@ -1,10 +1,8 @@
-import {map, filter}from '../functional/arrays';
-
+import { map, filter } from '../functional/arrays';
 export const __          = Symbol('empty parameter');
 export const isPlaceholder      = a => a === __;
 const notPlaceholder     = a => !(isPlaceholder(a));
 const removePlaceholders = a => filter(notPlaceholder, a);
-
 
 /**
  * Partial Application Utility
@@ -14,7 +12,7 @@ const removePlaceholders = a => filter(notPlaceholder, a);
  *
  * @param func
  * @param args
- * @returns {_partial}
+ * @returns {function}
  */
 export default function partial(func, ...args) {
   const numReqArgs = func.length;

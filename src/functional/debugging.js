@@ -1,12 +1,11 @@
-import logger from '../logger.js'
-import curry from '../utils/curry.js'
-
 /**
  * These are logging and debugging functions to assist composition
  * analysis.All the functions in this file are impure in the respect
  * that they all do IO without using a functor to abstract the
  * impurity.
  */
+import logger from '../logger.js'
+import curry from '../utils/curry.js'
 
 
 /**  tap :: α -> α    */
@@ -30,3 +29,7 @@ const debug = curry((cond, a) => {
   }
   return a
 })
+
+export default {
+  tap, lTap, debug,
+}

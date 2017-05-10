@@ -1,5 +1,5 @@
 
-/** compose :: (α -> β) ...(β -> γ) -> (α -> γ)  */
+// compose :: (α -> β) ...(β -> γ) -> (α -> γ)
 const compose = (...funcs) => {
   return (predicate) => {
     return funcs.reduceRight(

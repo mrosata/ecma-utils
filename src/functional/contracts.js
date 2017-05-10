@@ -1,10 +1,11 @@
+/*
+ * Primitive type contracts, I haven't decided if
+ * these functions will stay or go.
+ */
 
-// These aren't the contracts, I haven't added the contracts yet
-// not sure if the following functions will stay or go.
-
-/**  noop :: Mixed -> _ */
+/**  noop :: α -> Void  */
 const noop = (n) => void(n)
-/**  bool :: Mixed -> Boolean */
+/**  bool :: α -> Boolean  */
 const bool = (val) => !!val
 
-export {noop, bool}
+export { noop, bool }

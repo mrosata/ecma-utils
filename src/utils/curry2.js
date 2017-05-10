@@ -1,8 +1,10 @@
 /**
- * A curry that applies the function over the arguments as soon as the
- * curried function is applied with at least 2 arguments. So the function
- * can be applied to more than 2 arguments, they just have to be passed in
- * all at once.
+ * A curry that applies a morphism once it has two or more
+ * arguments. It doesn't matter what the original function
+ * has for an arity
+ *
+ * @param {function} fn
+ * @return {function}
  */
 export default function curry2(fn) {
   return (...args) => {

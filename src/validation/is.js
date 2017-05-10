@@ -99,6 +99,9 @@ class is {
     return Number.isNaN(testValue)
   }
 
+  static bool(testValue) {
+    return typeof testValue === "boolean"
+  }
 
   /**
    * Affirm whether an object or function points to a specific constructor.

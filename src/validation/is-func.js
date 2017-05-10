@@ -8,39 +8,39 @@ import is from "./is.js";
  */
 
 
-/**   isArray :: α -> Boolean */
+// isArray :: α -> Boolean
 const isArray = is.array
 
-/**   isArray :: α -> Boolean */
+// isObject :: α -> Boolean
 const isObject = is.object
 
-/**   isString :: α -> Boolean */
+// isString :: α -> Boolean
 const isString = is.string
 
-/**   isNumber :: α -> Boolean */
+// isNumber :: α -> Boolean
 const isNumber = is.number
 
-/**   isBool :: α -> Boolean */
+// isBool :: α -> Boolean
 const isBool = is.bool
 
-/**   isNone :: α -> Boolean */
+// isNone :: α -> Boolean
 const isNone = is.none
 
-/**   isDefined :: α -> Boolean */
+// isDefined :: α -> Boolean
 const isDefined = is.defined
 
-/**   isCallable :: α -> Boolean */
+// isCallable :: α -> Boolean
 const isCallable = is.callable
 
-/**   isNeg :: α -> Boolean */
+// isNeg :: α -> Boolean
 const isNeg = (val) => !val && val !== 0
 
-/**   neg :: α -> Boolean */
+// neg :: α -> Boolean
 const neg = (val) => !val
 
 
 export default {
   isArray, isObject, isString, isNumber,
   isBool, isNone, isDefined, isCallable,
-  isNeg, neg
+  isNeg, neg,
 }

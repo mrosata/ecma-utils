@@ -1,13 +1,18 @@
 /*globals before, after, describe, it*/
-import {isFunc} from '../lib/index.js'
+import isFunc from '../src/validation/is-func.js'
 import {expect} from 'chai'
 
 
 const {
-        isArray, isObject, isString, isNumber,
-        isBool, isNone, isDefined, isCallable,
-        isNeg, neg
-      } = isFunc
+  isArray,
+  isBool,
+  isString,
+  isNeg,
+  isNone, isDefined, isCallable,
+  isNumber,
+  isObject,
+  neg,
+} = isFunc
 
 
 /*** isArray ***/

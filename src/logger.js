@@ -1,4 +1,10 @@
+import { isObject } from './validation/is-func.js'
 
-const consoleUndefined = typeof console === "undefined"
+export const noConsole = isObject(console)
 
-export const logger = consoleUndefined ? {} : console
+export const logger = noConsole ? {} : console
+
+export default {
+  noConsole,
+  logger,
+}
