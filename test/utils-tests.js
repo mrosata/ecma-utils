@@ -1,4 +1,4 @@
-/*globals before, after, describe, it*/
+/* globals before, after, describe, it */
 import { utils } from '../lib/index.js'
 import arrayUtils from '../src/functional/arrays.js'
 import { expect } from 'chai'
@@ -19,19 +19,19 @@ describe('#compose utility function', () => {
   })
 })
 
-describe('Array Utils', function() {
+describe('Array Utils', () => {
 
-  it('should exist', function() {
-    expect(arrayUtils).to.be.object
+  it('should exist', () => {
+    expect(arrayUtils).to.be.an('object')
   })
 
-  describe('#remove', function() {
+  describe('#remove', () => {
 
-    it('should exist', function() {
-      expect(arrayUtils.remove).to.be.function
+    it('should exist', () => {
+      expect(arrayUtils.remove).to.be.a('function')
     })
 
-    it('should not mutate subject', function() {
+    it('should not mutate subject', () => {
       const a = [1, 2, 3, 4, 5, 6]
       const aStr = JSON.stringify(a)
       const len = a.length
@@ -42,7 +42,7 @@ describe('Array Utils', function() {
       expect(JSON.stringify(a)).to.equal(aStr)
     })
 
-    it('should remove subsection of array', function() {
+    it('should remove subsection of array', () => {
       const a = [1, 2, 3, 4, 5, 6]
       const b = remove(2, 1, a)
       const c = remove(1, 2, a)
@@ -52,7 +52,7 @@ describe('Array Utils', function() {
       expect(d).to.deep.equal([4, 5, 6])
     })
 
-    it('has no effect if amt is 0', function() {
+    it('has no effect if amt is 0', () => {
       const a = [1, 2, 3, 4, 5, 6]
       const b = remove(2, 0, a)
       const c = remove(1, 0, a)

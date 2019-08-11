@@ -17,10 +17,10 @@ const {
 
 /*** isArray ***/
 describe('#isArray utility function', () => {
-  it('should reconize an empty array', () => {
+  it('should recognize an empty array', () => {
     expect(isArray([])).to.equal(true)
   })
-  it('should reconize an array with length', () => {
+  it('should recognize an array with length', () => {
     expect(isArray([1, 2, 3, 4])).to.equal(true)
   })
   it('should not accept an object as an array', () => {
@@ -46,7 +46,7 @@ describe('#isObject utility function', () => {
     expect(isObject(function notAnObject(a,b) {})).to.equal(false)
     expect(isObject((a,b) => a + b)).to.equal(false)
   })
-  it('should not recongnize false as an object', () => {
+  it('should not recognize false as an object', () => {
     expect(isObject(false)).to.equal(false)
   })
   it('should recognize an array with properties', () => {
