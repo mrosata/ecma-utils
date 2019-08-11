@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -14,7 +14,6 @@
     "consistent-return": 0,
     "no-case-declarations": 0,
     "no-shadow": 0,
-    "semi": 0,
     "space-before-function-paren": 0,
     "spaced-comment": 0,
     "max-len": [2, 80, 4, {"ignoreUrls": true, "ignoreComments": true}],
@@ -24,6 +23,7 @@
     "one-var-declaration-per-line": 0,
     "no-return-assign": 0,
     "import/extensions": 0,
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "semi": 0
   }
 }
